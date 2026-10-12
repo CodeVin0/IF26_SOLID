@@ -181,7 +181,7 @@ async function preparePhotoUrl(person: PersonPhoto): Promise<string> {
     const context = canvas.getContext("2d");
     if (!context) throw new Error("This browser cannot render the PDF.");
 
-    await page.render({ canvasContext: context, viewport }).promise;
+    // await page.render({ canvasContext: context, viewport }).promise;
     const renderedBlob = await new Promise<Blob>((resolve, reject) => {
       canvas.toBlob(
         (blob) => (blob ? resolve(blob) : reject(new Error("PDF conversion failed."))),
